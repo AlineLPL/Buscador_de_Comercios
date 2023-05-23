@@ -76,5 +76,5 @@ La demo del proyecto se puede consultar a través de los siguientes links:
 ## Integrantes
 
 + Edgar Adrián López González-141236
-+ Aline Lizeth Pérez López
-
++ Aline Lizeth Pérez López 203096
++ Sandra
