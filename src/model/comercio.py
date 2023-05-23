@@ -9,8 +9,11 @@ import csv
 def silhouette_score_f(estimator, X):
     '''
     Función que genera la métrica de silueta para modelos de clusters
-    estimator: 
-    X:
+    Variables input:
+    estimator: Objeto del Modelo entrenado 
+    X: Data Frame con el cual fue entrenado el modelo
+    Output:
+    score: valor de la métrica silueta
     
     '''
     labels = estimator.fit_predict(X)
@@ -20,24 +23,13 @@ def silhouette_score_f(estimator, X):
         score = -1
     return score
 
-def DBSNC_F():
-    '''
-    Función que genera la métrica de silueta para modelos de clusters
-    estimator: 
-    X:
-    
-    '''
-    dbscan = DBSCAN()
-    cv = KFold(n_splits=10)
-    parameters = {'eps': [0.001,0.01,0.0125,0.02,0.05,0.8,1,1.5],
-                  'min_samples': [5,10,15,50]}
-    dbscan_gs = GridSearchCV(dbscan, parameters, cv = cv, n_jobs=-1,scoring= silhouette_score_f, error_score=-1)
-    
-    return dbscan_gs
-
 def lecture_data(i):
     '''
-    
+    Función que da formato a los archivos que se descargan del INEGI
+    Variables input:
+    i : Archivo csv que se lee a través de un for
+    Variables output:
+    denue: ARchivo final csv formateado correctamente 
     '''
     denue = pd.read_csv(i, 
                     index_col=0, 
